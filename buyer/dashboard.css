@@ -1,0 +1,77 @@
+/* ==========================================================================
+   CapFlow — buyer dashboard.css
+   ========================================================================== */
+
+.bd-wrap { margin-top: -34px; }  /* ভলিউম কার্ড সামান্য উপরে উঠবে */
+
+/* ভলিউম কার্ড */
+.bd-vol {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 22px; padding: 18px 20px;
+  box-shadow: var(--shadow-md);
+}
+.bd-vol-k { font-size: 12px; color: var(--ink-2); }
+.bd-vol-n { font-family: var(--font-display); font-weight: 800; font-size: 30px; margin: 4px 0 2px; letter-spacing: -.8px; color: var(--ink); }
+.bd-vol-g { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--jade); font-weight: 700; }
+
+/* স্ট্যাটস */
+.bd-stats { display: flex; gap: 10px; margin-top: 14px; }
+.bd-stat {
+  flex: 1; background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 18px; padding: 15px 14px;
+}
+.bd-stat-ico {
+  width: 34px; height: 34px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
+}
+.bd-stat-ico svg { width: 18px; height: 18px; }
+.bd-stat-ico.amber { background: var(--amber-bg); color: var(--amber-ink); }
+.bd-stat-ico.mint  { background: var(--mint); color: var(--jade); }
+.bd-stat-n { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); }
+.bd-stat-l { font-size: 12px; color: var(--ink-2); }
+
+/* অফার কার্ড */
+.bd-offer {
+  display: block; background: var(--jade-deep);
+  border-radius: 20px; padding: 16px 18px; color: #fff;
+  position: relative; overflow: hidden;
+}
+.bd-offer-glow {
+  position: absolute; top: -40px; right: -30px;
+  width: 130px; height: 130px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(45,212,167,.4), rgba(45,212,167,0) 70%);
+}
+.bd-offer-in { position: relative; }
+.bd-offer-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.bd-offer-k { font-size: 12px; color: #9FC7BA; }
+.bd-offer-ttl { font-family: var(--font-display); font-weight: 700; font-size: 17px; margin-top: 2px; }
+.bd-offer-pay { font-size: 11.5px; color: #9FC7BA; margin-top: 4px; }
+.bd-offer-live {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(45,212,167,.2); color: #2DD4A7;
+  font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px;
+}
+.bd-offer-btns { display: flex; gap: 10px; margin-top: 14px; }
+.bd-offer-btn {
+  flex: 1; text-align: center; border-radius: 12px; padding: 10px 0;
+  font-size: 13px; font-weight: 700;
+}
+.bd-offer-btn.ghost { background: rgba(255,255,255,.12); color: #fff; }
+.bd-offer-btn.solid { background: #fff; color: var(--jade-deep); }
+
+/* কুইক */
+.bd-quick { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.bd-q {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 16px; padding: 14px;
+  display: flex; align-items: center; gap: 11px;
+}
+.bd-q-ico {
+  width: 38px; height: 38px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
+}
+.bd-q-ico svg { width: 19px; height: 19px; }
+.bd-q-ico.blue { background: var(--blue-bg); color: var(--blue-ink); }
+.bd-q-ico.mint { background: var(--mint); color: var(--jade); }
+.bd-q-t { font-size: 13px; font-weight: 700; color: var(--ink); }
+.bd-q-s { font-size: 11px; color: var(--amber-ink); font-weight: 700; }

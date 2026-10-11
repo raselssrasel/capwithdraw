@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — বায়ার হতে চান?</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="become-buyer.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar" style="display:flex;align-items:center;gap:14px">
+    <a href="profile.html" class="bb-back" aria-label="ফিরে যান">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="display bb-title">বায়ার হতে চান?</div>
+  </header>
+
+  <main class="content scroll">
+    <div class="bb-wrap">
+
+      <div class="bb-hero">
+        <div class="bb-hero-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+        </div>
+        <div class="bb-hero-ttl">বায়ার হিসেবে যুক্ত হোন</div>
+        <p class="bb-hero-sub">CapFlow-এ বায়ার হওয়া প্রাইভেট ও যাচাই করা। বায়ার হতে চাইলে নিচের ইমেইলে আমাদের সাথে যোগাযোগ করুন — আমরা যাচাই করে আপনাকে বায়ার অ্যাকাউন্ট দেব।</p>
+      </div>
+
+      <!-- ওনার কন্টাক্ট ইমেইল -->
+      <div class="bb-card">
+        <div class="bb-card-k">যোগাযোগ</div>
+        <div class="bb-contact">
+          <div class="bb-contact-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6 10-6"/></svg>
+          </div>
+          <div class="bb-contact-txt">
+            <div class="bb-contact-l">ইমেইল</div>
+            <div id="bb-email" class="bb-contact-v"></div>
+          </div>
+        </div>
+        <a id="bb-mail" href="#" class="btn btn-primary bb-mail">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6 10-6"/></svg>
+          ইমেইল করুন
+        </a>
+      </div>
+
+      <div class="bb-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span>বায়ার লগইন শুধু অনুমোদিত বায়ারদের জন্য — এটি অ্যাপে পাবলিক নয়।</span>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../assets/js/config.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const email = window.CAPFLOW.user.ownerEmail;
+    document.getElementById('bb-email').textContent = email;
+    document.getElementById('bb-mail').href = 'mailto:' + email + '?subject=' + encodeURIComponent('CapFlow বায়ার আবেদন');
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script>(async()=>{ if(window.cfRequireLogin) await window.cfRequireLogin("welcome.html"); })();</script>
+</body>
+</html>

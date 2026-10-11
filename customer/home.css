@@ -1,0 +1,119 @@
+/* ==========================================================================
+   CapFlow — home.css  (কাস্টমার হোম পেজ)
+   ========================================================================== */
+
+/* হেডার */
+.hm-top {
+  padding: 52px 22px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.hm-user { display: flex; align-items: center; gap: 12px; }
+.hm-ava {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--jade), #13A87C);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-family: var(--font-display); font-size: 16px;
+  flex: 0 0 auto;
+}
+.hm-hi { font-size: 12.5px; color: var(--ink-2); }
+.hm-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--ink); }
+.hm-top-actions { display: flex; align-items: center; gap: 10px; }
+.hm-bell {
+  position: relative;
+  width: 44px; height: 44px; border-radius: 13px;
+  background: var(--card); border: 1px solid var(--line);
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.hm-bell svg { width: 21px; height: 21px; }
+.hm-bell-dot {
+  position: absolute; top: 9px; right: 10px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--rose-ink); border: 2px solid var(--card);
+}
+
+.hm-wrap { padding: 6px 22px 16px; }
+
+/* মূল CTA */
+.hm-hero {
+  display: block;
+  border-radius: 24px;
+  background: var(--jade-deep);
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -20px rgba(11,59,46,.8);
+}
+.hm-hero-glow {
+  position: absolute; top: -50px; right: -40px;
+  width: 170px; height: 170px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(45,212,167,.45), rgba(45,212,167,0) 70%);
+}
+.hm-hero-in { position: relative; z-index: 1; }
+.hm-hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.12); color: #CDE8DE;
+  font-size: 11.5px; font-weight: 600;
+  padding: 5px 11px; border-radius: 999px;
+}
+.hm-hero-ttl {
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  color: #fff; margin: 14px 0 6px; letter-spacing: -.4px;
+}
+.hm-hero-sub { color: #B6D8CC; font-size: 13.5px; line-height: 1.5; max-width: 230px; }
+.hm-hero-btn {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+  background: #fff; color: var(--jade-deep);
+  font-family: var(--font-display); font-weight: 700; font-size: 14.5px;
+  padding: 12px 18px; border-radius: 14px;
+}
+.hm-hero-btn svg { width: 17px; height: 17px; }
+
+/* সেকশন টাইটেল */
+.hm-sec-ttl { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--ink); }
+.hm-sec-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 24px 2px 12px;
+}
+.hm-sec-ttl { margin: 24px 2px 12px; }
+.hm-sec-row .hm-sec-ttl { margin: 0; }
+.hm-seeall { font-size: 12.5px; color: var(--jade); font-weight: 700; }
+
+/* সার্ভিস */
+.hm-services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.hm-svc {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 18px; padding: 14px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  text-align: center;
+}
+.hm-svc-ico {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.hm-svc-ico svg { width: 20px; height: 20px; }
+.hm-svc-ico.mint  { background: var(--mint);     color: var(--jade); }
+.hm-svc-ico.blue  { background: var(--blue-bg);  color: var(--blue-ink); }
+.hm-svc-ico.amber { background: var(--amber-bg); color: var(--amber-ink); }
+.hm-svc-txt { font-size: 11.5px; font-weight: 600; line-height: 1.3; color: var(--ink); }
+
+/* সাম্প্রতিক অর্ডার */
+.hm-recent { display: flex; flex-direction: column; gap: 10px; }
+.hm-rec {
+  display: flex; align-items: center; gap: 13px;
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 18px; padding: 14px;
+}
+.hm-rec-ava {
+  width: 44px; height: 44px; border-radius: 13px;
+  background: var(--mint); color: var(--jade);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-family: var(--font-display);
+  flex: 0 0 auto;
+}
+.hm-rec-mid { flex: 1; min-width: 0; }
+.hm-rec-row { display: flex; align-items: center; justify-content: space-between; }
+.hm-rec-name { font-weight: 700; font-size: 14px; color: var(--ink); }
+.hm-rec-total { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ink); }
+.hm-rec-sub { font-size: 12px; color: var(--ink-2); margin-top: 3px; }

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — মেসেজ</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="notifications.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar nt-top">
+    <div class="nt-head-left">
+      <a href="home.html" class="nt-back" aria-label="ফিরে যান">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+      <div class="display nt-title">মেসেজ</div>
+    </div>
+    <a href="#" class="nt-readall">সব পড়া হয়েছে</a>
+  </header>
+
+  <main class="content scroll">
+    <div id="nt-new-wrap">
+      <div class="nt-group">নতুন মেসেজ</div>
+      <div id="nt-new" class="nt-list"></div>
+    </div>
+    <div id="nt-old-wrap">
+      <div class="nt-group">আগের</div>
+      <div id="nt-old" class="nt-list"></div>
+    </div>
+    <p id="nt-empty" class="nt-empty" hidden>এখনো কোনো মেসেজ নেই।</p>
+  </main>
+
+</div>
+
+<script src="../assets/js/config.js"></script>
+<script src="notifications.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script>(async()=>{ if(window.cfRequireLogin) await window.cfRequireLogin("welcome.html"); })();</script>
+</body>
+</html>

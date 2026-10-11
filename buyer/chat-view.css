@@ -1,0 +1,102 @@
+/* ==========================================================================
+   CapFlow — buyer chat-view.css  (ওয়ার্কফ্লো অ্যাকশন বাটনসহ অর্ডার চ্যাট)
+   ========================================================================== */
+
+/* স্লেট হেডার */
+.byc-top {
+  display: flex; align-items: center; gap: 11px;
+  padding: 52px 16px 12px;
+  background: var(--slate);
+  flex-shrink: 0;
+}
+.byc-ava {
+  width: 38px; height: 38px; border-radius: 11px;
+  background: linear-gradient(135deg, var(--jade), #13A87C);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-family: var(--font-display); font-size: 13px;
+  flex: 0 0 auto;
+}
+.byc-who { flex: 1; min-width: 0; }
+.byc-name { font-weight: 700; font-size: 14.5px; color: #fff; }
+.byc-sub { font-size: 11px; color: #9FB0CC; }
+.byc-state {
+  background: rgba(255,255,255,.14); color: #FFE3B0;
+  font-size: 10px; font-weight: 700; padding: 4px 9px; border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+/* অর্ডার সারাংশ */
+.byc-summary {
+  display: flex; justify-content: space-between;
+  background: var(--slate); color: #fff;
+  margin: 0; padding: 0 16px 12px;
+  flex-shrink: 0;
+}
+.byc-summary .cell { flex: 1; text-align: center;
+  background: rgba(255,255,255,.07); margin: 0 2px; padding: 8px 0; border-radius: 10px; }
+.byc-summary .k { font-size: 9.5px; color: #9FB0CC; }
+.byc-summary .v { font-family: var(--font-display); font-weight: 700; font-size: 13px; }
+.byc-summary .v.hi { color: #2DD4A7; }
+
+/* অ্যাকশন প্যানেল */
+.byc-actions {
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  border-radius: 20px 20px 0 0;
+  padding: 14px 14px 10px;
+  flex-shrink: 0;
+}
+.byc-actions-head {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px;
+}
+.byc-actions-ttl { font-size: 11.5px; font-weight: 700; color: var(--muted); }
+.byc-actions-step { font-size: 11px; color: var(--muted); }
+
+.byc-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; }
+.byc-act {
+  border: 1px solid var(--line); background: var(--bg);
+  border-radius: 13px; padding: 11px 12px;
+  display: flex; align-items: center; gap: 9px; text-align: left;
+  font-family: inherit;
+}
+.byc-act.hot { border: 1.5px solid var(--jade); background: var(--mint); }
+.byc-act-ico {
+  width: 30px; height: 30px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
+}
+.byc-act-ico svg { width: 16px; height: 16px; }
+.byc-act-ico.blue  { background: var(--blue-bg);  color: var(--blue-ink); }
+.byc-act-ico.jade  { background: var(--jade); color: #fff; }
+.byc-act-ico.mint  { background: var(--mint); color: var(--jade); }
+.byc-act-ico.amber { background: var(--amber-bg); color: var(--amber-ink); }
+.byc-act-t { font-size: 11.5px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+.byc-act-t.hot { color: var(--jade-ink); font-weight: 700; }
+
+.byc-act.full { grid-column: 1 / -1; justify-content: center; }
+.byc-act.send {
+  background: var(--jade); border: none; color: #fff;
+  padding: 13px 12px; box-shadow: var(--shadow-cta);
+}
+.byc-act.send svg { width: 18px; height: 18px; }
+.byc-act.send span { font-size: 13.5px; font-weight: 700; color: #fff; }
+.byc-act.cancel { border: 1px solid var(--rose-bg); background: var(--rose-bg); }
+.byc-act.cancel svg { width: 16px; height: 16px; color: var(--rose-ink); }
+.byc-act.cancel span { font-size: 12.5px; font-weight: 700; color: var(--rose-ink); }
+
+/* ইনপুট */
+.byc-input {
+  display: flex; align-items: center; gap: 9px; margin-top: 11px; padding-bottom: 16px;
+}
+.byc-input-box {
+  flex: 1; height: 42px; border-radius: 13px; background: var(--bg);
+  display: flex; align-items: center; padding: 0 14px;
+}
+.byc-input-box input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-family: inherit; font-size: 13.5px; color: var(--ink); min-width: 0;
+}
+.byc-send {
+  width: 42px; height: 42px; border-radius: 13px; background: var(--slate);
+  border: none; display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
+}
+.byc-send svg { width: 19px; height: 19px; }

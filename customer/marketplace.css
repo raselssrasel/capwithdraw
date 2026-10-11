@@ -1,0 +1,149 @@
+/* ==========================================================================
+   CapFlow — marketplace.css
+   শুধু Marketplace পেজের স্টাইল। কমন রঙ আসে tokens.css থেকে।
+   ========================================================================== */
+
+/* হেডার */
+.mk-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mk-title { font-weight: 700; font-size: 20px; letter-spacing: -.4px; }
+
+.mk-searchrow { display: flex; gap: 10px; }
+.mk-search {
+  flex: 1;
+  height: 46px;
+  border-radius: var(--r-md);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+}
+.mk-search svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.mk-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  min-width: 0;
+}
+.mk-filter {
+  width: 46px; height: 46px;
+  border-radius: var(--r-md);
+  background: var(--jade-deep);
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.mk-filter svg { width: 20px; height: 20px; }
+
+/* সার্ভার চিপ */
+.mk-chips {
+  padding: 12px 22px 4px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.mk-chip {
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+.mk-chip.active {
+  background: var(--jade-deep);
+  color: #fff;
+  border-color: var(--jade-deep);
+}
+.mk-chip.active .flag-ico { color: #fff; }
+
+/* অফার তালিকা */
+.mk-offers {
+  padding: 10px 22px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mk-empty { text-align: center; color: var(--muted); font-size: 14px; padding: 30px; }
+
+/* অফার কার্ড */
+.offer {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  padding: 16px;
+  position: relative;
+}
+.offer.is-best { border: 1.5px solid var(--jade); box-shadow: 0 14px 30px -20px rgba(10,133,96,.5); }
+.offer.is-offline { opacity: .72; }
+
+.offer-best-tag {
+  position: absolute; top: -9px; left: 16px;
+  background: var(--jade); color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 9px; border-radius: var(--r-pill);
+}
+
+.offer-top { display: flex; align-items: center; justify-content: space-between; }
+.offer-id {
+  display: flex; align-items: center; gap: 11px;
+}
+.offer-ava {
+  width: 44px; height: 44px; border-radius: 13px;
+  background: var(--mint); color: var(--jade);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-family: var(--font-display);
+  flex: 0 0 auto;
+}
+.offer-name { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 15px; }
+.offer-meta {
+  font-size: 11.5px; font-weight: 700; margin-top: 2px;
+  display: flex; align-items: center; gap: 5px;
+}
+.offer-meta.on  { color: var(--jade); }
+.offer-meta.off { color: var(--muted); }
+.offer-rate { text-align: right; }
+.offer-rate b { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--ink); }
+.offer-rate span { display: block; font-size: 11px; color: var(--muted); }
+
+.offer-mid {
+  display: flex; gap: 16px;
+  margin: 14px 0 13px; padding: 12px 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.offer-mid .lbl { font-size: 10.5px; color: var(--muted); margin-bottom: 3px; }
+.offer-mid .val { font-size: 12.5px; font-weight: 600; display: flex; align-items: center; }
+
+.offer-bot { display: flex; align-items: center; justify-content: space-between; }
+.offer-pays { display: flex; gap: 6px; }
+
+.offer-chat {
+  background: var(--jade); color: #fff;
+  font-weight: 700; font-size: 13.5px;
+  padding: 10px 18px; border-radius: 12px;
+  display: inline-flex; align-items: center; gap: 7px;
+  border: none;
+}
+.offer-chat svg { width: 15px; height: 15px; }
+.offer-offline {
+  background: var(--line); color: var(--muted);
+  font-weight: 700; font-size: 13.5px;
+  padding: 10px 18px; border-radius: 12px;
+}
+
+/* হেডারের ডান পাশে ব্যাজ + থিম টগল */
+.mk-head-right { display: flex; align-items: center; gap: 10px; }

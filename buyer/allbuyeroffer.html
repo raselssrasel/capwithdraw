@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — অর্ডার</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="buyer.css">
+<link rel="stylesheet" href="../customer/orders.css">
+<link rel="stylesheet" href="orders.css">
+
+<style>
+  body {
+    padding-bottom: 80px; /* Nav-er pichone content dhaka na porar jonyo */
+  }
+  
+  /* Bottom Nav Container fixed and centered */
+  .bottom-nav {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Screen-er majkhane anar jonyo */
+    width: 100% !important;
+    max-width: 480px !important; /* Header ba App wrapper-er max-width onujayi set korun */
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+<header class="by-top">
+  <div style="flex:1"><div class="t1">সকল বায়ারের অফার</div><div class="t2"> </div></div>
+  <button id="theme-toggle" class="by-theme" aria-label="থিম বদলান" disabled></button>
+</header>
+
+<div style="position: relative; width: 100%; height: calc(100vh - 160px); min-height: 500px; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+  <iframe
+    src="../customer/simpleofferforiframe.html"
+    style="width: 100%; height: 100%; border: none; display: block;">
+  </iframe>
+
+  <div style="
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: transparent;
+    pointer-events: auto;
+  "></div>
+</div>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script src="chat-list.js"></script>
+</body>
+</html>

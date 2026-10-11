@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — অফার</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="buyer.css">
+<link rel="stylesheet" href="offer.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="by-top">
+    <div style="flex:1"><div class="t1">আমার অফার</div><div class="t2" id="of-count-sub">সর্বোচ্চ ৩টি সক্রিয় অফার</div></div>
+    <button id="theme-toggle" class="by-theme" aria-label="থিম বদলান"></button>
+  </header>
+
+  <main class="content scroll">
+    <div class="of-wrap">
+
+      <!-- আগের পোস্ট তালিকা -->
+      <div class="by-sec" id="of-list-sec">আমার পোস্ট</div>
+      <div id="of-list" class="of-list"></div>
+      <p id="of-list-empty" class="of-empty" hidden>এখনো কোনো পোস্ট নেই। নিচে নতুন পোস্ট করুন।</p>
+
+      <!-- নতুন/এডিট ফর্ম -->
+      <button id="of-new-btn" class="btn btn-ghost" style="margin:16px 0 8px">+ নতুন অফার পোস্ট করুন</button>
+
+      <div id="of-form" hidden>
+        <div class="by-sec" id="of-form-title">নতুন অফার</div>
+
+        <label class="of-label">USD রেট (৳ প্রতি $1)</label>
+        <div class="of-rate">
+          <span class="of-rate-cur">৳</span>
+          <input id="of-rate" class="of-rate-in" placeholder="103" inputmode="decimal">
+          <span class="of-rate-suf">প্রতি $1</span>
+        </div>
+
+        <div class="of-row2">
+          <div><label class="of-label">সর্বনিম্ন USD</label><div class="of-field"><span class="of-dollar">$</span><input id="of-min" placeholder="10" inputmode="numeric"></div></div>
+          <div><label class="of-label">সর্বোচ্চ USD</label><div class="of-field"><span class="of-dollar">$</span><input id="of-max" placeholder="500" inputmode="numeric"></div></div>
+        </div>
+
+        <label class="of-label">CapCut সার্ভার</label>
+        <div id="of-servers" class="of-servers"></div>
+
+        <label class="of-label" style="margin-top:18px">যে পেমেন্ট মেথড নেন</label>
+        <div id="of-pays" class="of-pays"></div>
+
+        <label class="of-label" style="margin-top:18px">নোটিস (কাস্টমার যা দেখবে)</label>
+        <div id="of-note-bn" class="of-textbox"></div>
+
+        <div id="of-msg" class="au-msg" hidden style="margin-top:12px"></div>
+
+        <div style="display:flex;gap:10px;margin-top:16px;margin-bottom:10px">
+          <button id="of-cancel" class="btn btn-ghost" style="flex:0 0 38%">বাতিল</button>
+          <button id="of-save" class="btn btn-primary" style="flex:1">সেভ করুন</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script src="offer.js"></script>
+</body>
+</html>

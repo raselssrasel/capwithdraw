@@ -1,0 +1,107 @@
+/* ==========================================================================
+   CapFlow — buyer offer.css
+   ========================================================================== */
+
+.of-wrap { padding: 18px 22px 16px; }
+
+.of-label {
+  display: block; font-size: 12.5px; font-weight: 600;
+  color: var(--ink-2); margin-bottom: 8px;
+}
+
+/* রেট */
+.of-rate {
+  height: 58px; border-radius: 16px;
+  border: 1.5px solid var(--jade); background: var(--card);
+  display: flex; align-items: center; padding: 0 16px; gap: 8px;
+  margin-bottom: 18px;
+}
+.of-rate-cur { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--ink-2); }
+.of-rate-in {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-family: var(--font-display); font-weight: 800; font-size: 26px;
+  color: var(--ink); min-width: 0;
+}
+.of-rate-suf { font-size: 13px; color: var(--muted); }
+
+/* min/max */
+.of-row2 { display: flex; gap: 12px; margin-bottom: 18px; }
+.of-row2 > div { flex: 1; }
+.of-field {
+  height: 52px; border-radius: 14px;
+  border: 1.5px solid var(--line); background: var(--card);
+  display: flex; align-items: center; padding: 0 14px; gap: 4px;
+}
+.of-dollar { color: var(--muted); font-weight: 700; }
+.of-field input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-size: 16px; font-weight: 600; font-family: inherit;
+  color: var(--ink); min-width: 0;
+}
+
+/* সার্ভার */
+.of-note {
+  font-size: 11px; color: var(--amber-ink); background: var(--amber-bg);
+  padding: 7px 11px; border-radius: 10px; margin-bottom: 12px; line-height: 1.4;
+}
+.of-servers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 9px; }
+.of-srv {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 14px 6px; border-radius: 14px;
+  border: 1.5px solid var(--line); background: var(--card);
+  cursor: pointer; position: relative;
+}
+.of-srv.on { border-color: var(--jade); background: var(--mint); }
+.of-srv .tick {
+  position: absolute; top: 7px; right: 7px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--jade); display: none; align-items: center; justify-content: center;
+}
+.of-srv.on .tick { display: flex; }
+.of-srv .tick svg { width: 10px; height: 10px; }
+.of-srv .flag { margin-right: 0; width: 30px; height: 22px; }
+.of-srv .flag svg { width: 30px; height: 22px; }
+.of-srv .srv-globe { width: 30px; height: 22px; display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.of-srv .srv-globe svg { width: 17px; height: 17px; }
+.of-srv .srv-name { font-size: 11.5px; font-weight: 600; color: var(--ink-2); }
+.of-srv.on .srv-name { color: var(--ink); font-weight: 700; }
+
+/* পেমেন্ট */
+.of-pays { display: flex; gap: 10px; }
+.of-pay {
+  flex: 1; border: 1.5px solid var(--line); background: var(--card);
+  border-radius: 14px; padding: 15px 8px 13px;
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  cursor: pointer; position: relative;
+}
+.of-pay.on { border-color: var(--jade); background: var(--mint); }
+.of-pay .tick {
+  position: absolute; top: 7px; right: 7px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--jade); display: none; align-items: center; justify-content: center;
+}
+.of-pay.on .tick { display: flex; }
+.of-pay .tick svg { width: 10px; height: 10px; }
+
+/* নোটিস বক্স */
+.of-textbox {
+  border-radius: 14px; border: 1.5px solid var(--line); background: var(--card);
+  padding: 13px 14px; font-size: 13px; line-height: 1.6;
+  color: var(--ink); min-height: 72px;
+}
+
+.of-save { margin-top: 20px; }
+
+/* একাধিক অফার তালিকা */
+.of-list { display:flex; flex-direction:column; gap:10px; }
+.of-empty { text-align:center; color:var(--muted); font-size:13.5px; padding:16px; }
+.ofc { background:var(--card); border:1px solid var(--line-soft); border-radius:16px; padding:15px; }
+.ofc-off { opacity:.7; }
+.ofc-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.ofc-rate { font-family:var(--font-display); font-weight:800; font-size:20px; color:var(--ink); }
+.ofc-rate span { font-size:12px; color:var(--muted); font-weight:600; }
+.ofc-sub { font-size:12px; color:var(--ink-2); margin-top:3px; }
+.ofc-pay { font-size:11.5px; color:var(--muted); margin-top:3px; }
+.ofc-btns { display:flex; gap:8px; margin-top:12px; }
+.ofc-btn { flex:1; height:38px; border-radius:11px; border:1px solid var(--line); background:var(--bg); color:var(--ink-2); font-family:inherit; font-size:12.5px; font-weight:600; }
+.ofc-btn.danger { border-color:var(--rose-bg); background:var(--rose-bg); color:var(--rose-ink); }

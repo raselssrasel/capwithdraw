@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — চ্যাট</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="chat-view.css">
+</head>
+<body>
+<div class="app chat-app">
+
+  <!-- হেডার: বায়ার নাম + থিম টগল -->
+  <header class="chat-top">
+    <a href="orders.html" class="chat-back" aria-label="ফিরে যান">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div id="chat-ava" class="chat-ava"></div>
+    <div class="chat-who">
+      <div id="chat-name" class="chat-name"></div>
+      <div id="chat-pres" class="chat-pres"></div>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="থিম বদলান"></button>
+  </header>
+
+  <!-- অর্ডার সারাংশ স্ট্রিপ -->
+  <div id="chat-summary" class="chat-summary"></div>
+
+  <!-- মেসেজ এরিয়া (JS থেকে ভরবে) -->
+  <main id="chat-body" class="chat-body scroll"></main>
+
+  <!-- "টাকা পেয়েছি" বাটন (শুধু payment-sent এর পর দেখাবে) -->
+  <div id="chat-received-bar" class="chat-received-bar" hidden>
+    <button id="chat-received-btn" class="chat-received-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+      টাকা পেয়েছি
+    </button>
+    <div class="chat-received-note">এটি চাপলে অর্ডার সম্পন্ন হিসেবে গণ্য হবে।</div>
+  </div>
+
+  <!-- ইনপুট বার -->
+  <div class="chat-input">
+    <div class="chat-input-box">
+      <input id="chat-text" type="text" placeholder="মেসেজ লিখুন…" autocomplete="off">
+    </div>
+    <button id="chat-send" class="chat-send" aria-label="পাঠান">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+    </button>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireLogin) await window.cfRequireLogin("welcome.html"); })();</script>
+<script src="chat-view.js"></script>
+</body>
+</html>

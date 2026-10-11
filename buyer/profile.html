@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — প্রোফাইল</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="buyer.css">
+<link rel="stylesheet" href="../customer/profile.css">
+<link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+
+
+<div class="app">
+  <header class="by-band" style="padding-bottom:26px">
+    <div class="by-band-glow"></div>
+    <div class="by-band-row">
+      <div class="by-band-ttl">প্রোফাইল</div>
+      <button id="theme-toggle" class="by-theme" aria-label="থিম বদলান"></button>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="pf-ident" style="margin-top:18px">
+      <div class="pf-ava" id="byp-ava" style="border-radius:17px"></div>
+      <div class="pf-ident-txt">
+        <div class="pf-name-row"><span class="pf-name" id="byp-name"></span>
+          <svg class="pf-verify" viewBox="0 0 24 24" fill="#2DD4A7"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3 7.2 17l.9-5.4L4.2 7.7l5.4-.8z"/></svg></div>
+        <div class="pf-email" id="byp-email"></div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+  
+
+
+
+  <main class="content scroll">
+    <div class="pf-wrap">
+      <div class="pf-stats">
+        <div class="pf-stat"><div class="pf-stat-n" id="byp-orders"></div><div class="pf-stat-l">মোট অর্ডার</div></div>
+        <div class="pf-stat"><div class="pf-stat-n jade" id="byp-comp"></div><div class="pf-stat-l">কমপ্লিশন</div></div>
+        <div class="pf-stat"><div class="pf-stat-n" id="byp-rating"></div><div class="pf-stat-l">রেটিং</div></div>
+      </div>
+      <div class="pf-info">
+        <div class="pf-info-row"><span class="pf-info-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><div class="pf-info-k">ইমেইল ভেরিফায়েড</div><div class="pf-info-v jade">সম্পন্ন</div></div></div>
+        <div class="pf-info-row"><span class="pf-info-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><div class="pf-info-k">পরিচয় (NID) অনুমোদিত</div><div class="pf-info-v jade">সম্পন্ন</div></div></div>
+        <div class="pf-info-row"><span class="pf-info-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><div class="pf-info-k">অ্যাডমিন অনুমোদন</div><div class="pf-info-v jade">সক্রিয়</div></div></div>
+      </div>
+
+
+
+
+      <a href="login.html" class="pf-logout" style="margin-top:14px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+        লগ আউট
+      </a>
+    </div>
+  </main>
+
+
+
+
+
+
+
+
+
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // আসল লগইন করা বায়ারের তথ্য দেখাই
+  (async () => {
+    function ini(n){ if(!n) return 'B'; const p=n.trim().split(/\s+/); return ((p[0]?.[0]||'')+(p[1]?.[0]||'')).toUpperCase()||'B'; }
+    try {
+      const db = window.cfSupabase;
+      const { data: sess } = await db.auth.getSession();
+      const user = sess && sess.session ? sess.session.user : null;
+      if (!user) return;
+      const { data: prof } = await db.from('profiles').select('full_name').eq('id', user.id).single();
+      const name = (prof && prof.full_name) || user.email || 'বায়ার';
+      byp_name.textContent = name;
+      byp_email.textContent = user.email || '';
+      byp_ava.textContent = ini(prof && prof.full_name ? prof.full_name : '');
+      byp_orders.textContent = '0'; byp_comp.textContent = '0%'; byp_rating.textContent = '—';
+    } catch(e) { console.warn(e.message); }
+  })();
+  cfRenderBuyerNav('profile'); cfSetupThemeToggle();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — অর্ডার</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="orders.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="od-head">
+      <div class="display od-title">অর্ডার</div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="থিম বদলান"></button>
+    </div>
+    <div class="od-tabs">
+      <button class="od-tab active" data-tab="active">চলমান <span id="od-c-active">0</span></button>
+      <button class="od-tab" data-tab="completed">সম্পন্ন <span id="od-c-completed">0</span></button>
+      <button class="od-tab" data-tab="cancelled">বাতিল <span id="od-c-cancelled">0</span></button>
+    </div>
+  </header>
+
+  <main class="content scroll">
+    <div id="od-list" class="od-list"></div>
+    <p id="od-empty" class="od-empty" hidden>এখানে কোনো অর্ডার নেই।</p>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireLogin) await window.cfRequireLogin("welcome.html"); })();</script>
+<script src="orders.js"></script>
+</body>
+</html>

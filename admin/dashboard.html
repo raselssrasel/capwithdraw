@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Admin — ওভারভিউ</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="ad-top">
+    <div style="flex:1"><div class="t2">কন্ট্রোল প্যানেল</div><div class="t1">ওভারভিউ</div></div>
+    <div class="ad-badge"><span class="ad-badge-dot">A</span><span class="ad-badge-t">অ্যাডমিন</span></div>
+  </header>
+
+  <main class="content scroll">
+    <div class="ad-wrap">
+
+      <!-- দ্রুত নজর -->
+      <div class="ad-sec">যা দেখা দরকার</div>
+      <div class="adm-attn">
+        <a href="buyers.html" class="adm-attn-card amber">
+          <span class="adm-attn-ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+          <span id="ad-pending" class="adm-attn-n amber"></span>
+          <span class="adm-attn-l">বায়ার</span>
+        </a>
+        <a href="disputes.html" class="adm-attn-card rose">
+          <span class="adm-attn-ico rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
+          <span id="ad-disputes" class="adm-attn-n rose"></span>
+          <span class="adm-attn-l">খোলা বিরোধ</span>
+        </a>
+      </div>
+
+      <!-- প্ল্যাটফর্ম মেট্রিক -->
+      <div class="ad-sec" style="margin-top:20px">প্ল্যাটফর্ম</div>
+      <div class="adm-metrics">
+        <div class="adm-m"><div class="adm-m-h"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>কাস্টমার</span></div><div id="ad-cust" class="adm-m-n"></div></div>
+        <a href="offers.html" class="adm-m"><div class="adm-m-h"><svg viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><circle cx="18" cy="8" r="3"/></svg><span>বায়ার</span></div><div id="ad-buyers" class="adm-m-n"></div></a>
+        <a href="orders.html" class="adm-m"><div class="adm-m-h"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>সক্রিয় অর্ডার</span></div><div id="ad-active" class="adm-m-n"></div></a>
+        <div class="adm-m"><div class="adm-m-h"><svg viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span>সম্পন্ন</span></div><div id="ad-completed" class="adm-m-n"></div></div>
+        <a href="offers.html" class="adm-m"><div class="adm-m-h"><svg viewBox="0 0 24 24" fill="none" stroke="#C25B16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.6z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span>সক্রিয় অফার</span></div><div id="ad-offers" class="adm-m-n"></div></a>
+        <div class="adm-m dark"><div class="adm-m-h"><svg viewBox="0 0 24 24" fill="none" stroke="#2DD4A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span style="color:#8A93A1">২৪ঘ ভলিউম</span></div><div id="ad-vol" class="adm-m-n light"></div></div>
+      </div>
+
+    </div>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav admin-nav"></nav>
+
+</div>
+
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("admin","login.html"); })();</script>
+</body>
+</html>

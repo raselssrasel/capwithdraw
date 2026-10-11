@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — হোম</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- হেডার -->
+  <header class="hm-top">
+    <div class="hm-user">
+      <div id="hm-ava" class="hm-ava"></div>
+      <div>
+        <div class="hm-hi">স্বাগতম</div>
+        <div id="hm-name" class="hm-name"></div>
+      </div>
+    </div>
+    <div class="hm-top-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="থিম বদলান"></button>
+      <a href="notifications.html" class="hm-bell" aria-label="নোটিফিকেশন">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        <span class="hm-bell-dot"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="content scroll">
+    <div class="hm-wrap">
+
+      <!-- মূল CTA -->
+      <a href="marketplace.html" class="hm-hero">
+        <div class="hm-hero-glow"></div>
+        <div class="hm-hero-in">
+          <div class="hm-hero-tag"><span class="dot" style="background:#2DD4A7"></span> <span id="hm-online">—</span> জন বায়ার অনলাইন</div>
+          <div class="hm-hero-ttl">CapCut USD Withdraw</div>
+          <div class="hm-hero-sub">বায়ার বেছে নিন, রেট ঠিক করুন, bKash/Nagad/ব্যাংকে টাকা নিন।</div>
+          <span class="hm-hero-btn">মার্কেটপ্লেস খুলুন
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- সার্ভিস -->
+      <div class="hm-sec-ttl">সার্ভিস</div>
+      <div class="hm-services">
+        <a href="marketplace.html" class="hm-svc">
+          <span class="hm-svc-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7H8a4 4 0 0 0 0 8h5"/><path d="M13 11l4 4-4 4"/></svg></span>
+          <span class="hm-svc-txt">USD উইথড্র</span>
+        </a>
+        <a href="orders.html" class="hm-svc">
+          <span class="hm-svc-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1.5"/></svg></span>
+          <span class="hm-svc-txt">আমার অর্ডার</span>
+        </a>
+        <a href="chat.html" class="hm-svc">
+          <span class="hm-svc-ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+          <span class="hm-svc-txt">সাপোর্ট</span>
+        </a>
+      </div>
+
+      <!-- সাম্প্রতিক অর্ডার -->
+      <div class="hm-sec-row">
+        <div class="hm-sec-ttl">সাম্প্রতিক অর্ডার</div>
+        <a href="orders.html" class="hm-seeall">সব দেখুন</a>
+      </div>
+      <div id="hm-recent" class="hm-recent"></div>
+
+    </div>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="home.js"></script>
+<script>
+  // লগইন করা না থাকলে welcome পেজে পাঠাও
+  (async () => { await window.cfRequireLogin('welcome.html'); })();
+</script>
+</body>
+</html>

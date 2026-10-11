@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Admin — বিরোধ</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="pages.css">
+</head><body>
+<div class="app">
+  <header class="ad-top">
+    <a href="dashboard.html" class="ad-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
+    <div style="flex:1"><div class="t1">বিরোধ</div><div class="t2"><span id="ad-dcount">0</span> টি অভিযোগ</div></div>
+  </header>
+  <main class="content scroll"><div class="ad-wrap" style="display:flex;flex-direction:column;gap:12px" id="ad-dlist"></div>
+    <p id="ad-dempty" style="text-align:center;color:var(--muted);padding:30px" hidden>কোনো অভিযোগ নেই।</p>
+  </main>
+  <nav id="bottom-nav" class="bottom-nav admin-nav"></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("admin","login.html"); })();</script>
+<script>
+(function(){
+  const stName={open:'খোলা',resolved_customer:'কাস্টমার পক্ষে',resolved_buyer:'বায়ার পক্ষে',hold:'পর্যালোচনায়'};
+  function esc(s){ return String(s||'').replace(/</g,'&lt;'); }
+  async function resolve(id, status){
+    await window.cfSupabase.from('disputes').update({status}).eq('id',id); load();
+  }
+  async function load(){
+    const db=window.cfSupabase;
+    const { data } = await db.from('disputes')
+      .select('id,title,customer_note,status,created_at,orders(code)')
+      .order('created_at',{ascending:false});
+    const box=document.getElementById('ad-dlist'); const empty=document.getElementById('ad-dempty');
+    document.getElementById('ad-dcount').textContent=(data||[]).length; empty.hidden=(data||[]).length>0;
+    box.innerHTML=(data||[]).map(d=>`
+      <div class="ad-card">
+        <div class="pg-row" style="margin-bottom:8px">
+          <div><div class="pg-name">${esc(d.title)}</div><div class="pg-sub">#${d.orders?d.orders.code:''} · ${new Date(d.created_at).toLocaleString('bn-BD')}</div></div>
+          <span class="badge ${d.status==='open'?'badge-pending':'badge-done'}">${stName[d.status]||d.status}</span>
+        </div>
+        <div class="pg-quote">${esc(d.customer_note)}</div>
+        ${d.status==='open'?`<div class="pg-btns" style="margin-top:10px">
+          <button class="pg-btn solid" data-r="${d.id}" data-s="resolved_customer">কাস্টমার পক্ষে</button>
+          <button class="pg-btn ghost" data-r="${d.id}" data-s="resolved_buyer">বায়ার পক্ষে</button>
+        </div>`:''}
+      </div>`).join('');
+    box.querySelectorAll('[data-r]').forEach(b=>b.addEventListener('click',()=>resolve(b.dataset.r,b.dataset.s)));
+  }
+  document.addEventListener('DOMContentLoaded',()=>{ cfRenderAdminNav('disputes'); load(); });
+})();
+</script>
+</body></html>

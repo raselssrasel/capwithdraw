@@ -1,0 +1,44 @@
+/* ==========================================================================
+   CapFlow — admin.css
+   অ্যাডমিন কন্ট্রোল প্যানেল (প্রায়-কালো), কাস্টমার/বায়ার থেকে আলাদা।
+   ========================================================================== */
+
+:root { --adm-bg: #0E1016; --adm-card: #171B22; --adm-line: #2A2F39; --adm-ink: #ECEFF3; --adm-ink2: #A4ADBA; }
+
+/* অ্যাডমিন হেডার */
+.ad-top {
+  background: var(--adm-bg);
+  padding: 54px 22px 16px;
+  display: flex; align-items: center; gap: 13px;
+  flex-shrink: 0;
+}
+.ad-top .ad-back {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; flex: 0 0 auto;
+}
+.ad-top .ad-back svg { width: 22px; height: 22px; }
+.ad-top .t1 { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: #fff; }
+.ad-top .t2 { font-size: 11.5px; color: #8A93A1; margin-top: 1px; }
+.ad-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: #1A1E27; border: 1px solid var(--adm-line);
+  padding: 7px 11px; border-radius: 999px;
+}
+.ad-badge-dot {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--jade); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; font-family: var(--font-display);
+}
+.ad-badge-t { font-size: 12px; color: #fff; font-weight: 600; }
+
+/* সেকশন */
+.ad-wrap { padding: 16px 22px; }
+.ad-sec { font-size: 11.5px; font-weight: 700; color: #8A93A1; margin: 0 2px 10px; }
+
+/* কার্ড */
+.ad-card {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 18px; padding: 16px;
+}

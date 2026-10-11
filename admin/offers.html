@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Admin — অফার</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="pages.css">
+</head><body>
+<div class="app">
+  <header class="ad-top">
+    <a href="dashboard.html" class="ad-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
+    <div style="flex:1"><div class="t1">সব অফার</div><div class="t2"><span id="aof-count">0</span> টি অফার</div></div>
+  </header>
+  <main class="content scroll"><div class="ad-wrap" style="display:flex;flex-direction:column;gap:12px" id="aof-list"></div>
+    <p id="aof-empty" style="text-align:center;color:var(--muted);padding:30px" hidden>কোনো অফার নেই।</p>
+  </main>
+  <nav id="bottom-nav" class="bottom-nav admin-nav"></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("admin","login.html"); })();</script>
+<script>
+(function(){
+  const srvLabel={bd:'বাংলাদেশ',us:'ইউএসএ',all:'অন্য সব সার্ভার'};
+  const payLabel={bkash:'bKash',nagad:'Nagad',bank:'Bank'};
+  function ini(n){ if(!n) return 'B'; const p=n.trim().split(/\s+/); return ((p[0]?.[0]||'')+(p[1]?.[0]||'')).toUpperCase()||'B'; }
+  async function load(){
+    const db=window.cfSupabase;
+    const { data } = await db.from('offers').select('rate,min_usd,max_usd,servers,pay_methods,is_active,profiles(full_name)').order('created_at',{ascending:false});
+    const box=document.getElementById('aof-list'); const empty=document.getElementById('aof-empty');
+    document.getElementById('aof-count').textContent=(data||[]).length;
+    empty.hidden=(data||[]).length>0;
+    box.innerHTML=(data||[]).map(o=>{
+      const name=(o.profiles&&o.profiles.full_name)||'বায়ার';
+      const srv=(o.servers||[]).map(s=>srvLabel[s]||s).join(', ');
+      const pay=(o.pay_methods||[]).map(p=>payLabel[p]||p).join(' · ');
+      return `<div class="ad-card"><div class="pg-row">
+        <div class="pg-id"><div class="pg-ava mint">${ini(name)}</div>
+          <div><div class="pg-name">${name}</div><div class="pg-sub">${srv} · $${o.min_usd}–$${o.max_usd} · ${pay}</div></div></div>
+        <div style="text-align:right"><div class="pg-rate">৳${o.rate}</div>
+          <span class="badge ${o.is_active?'badge-done':'badge-cancel'}">${o.is_active?'সক্রিয়':'নিষ্ক্রিয়'}</span></div>
+      </div></div>`;
+    }).join('');
+  }
+  document.addEventListener('DOMContentLoaded',()=>{ cfRenderAdminNav('offers'); load(); });
+})();
+</script>
+</body></html>

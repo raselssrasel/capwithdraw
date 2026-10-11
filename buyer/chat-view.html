@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — অর্ডার চ্যাট</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../customer/chat.css">
+<link rel="stylesheet" href="buyer.css">
+<link rel="stylesheet" href="chat-view.css">
+</head>
+<body>
+<div class="app chat-app">
+
+  <header class="byc-top">
+    <a href="orders.html" class="chat-back" aria-label="ফিরে যান">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="byc-ava" id="byc-ava">C</div>
+    <div class="byc-who">
+      <div class="byc-name" id="byc-name">কাস্টমার</div>
+      <div class="byc-sub" id="byc-sub">অর্ডার</div>
+    </div>
+    <span class="byc-state" id="byc-state">চলমান</span>
+  </header>
+
+  <div class="byc-summary" id="byc-summary">
+    <div class="cell"><div class="k">USD</div><div class="v" id="bs-usd">—</div></div>
+    <div class="cell"><div class="k">রেট</div><div class="v" id="bs-rate">—</div></div>
+    <div class="cell"><div class="k">পে-আউট</div><div class="v hi" id="bs-total">—</div></div>
+    <div class="cell"><div class="k">মেথড</div><div class="v" id="bs-pay">—</div></div>
+  </div>
+
+  <main class="chat-body scroll" id="byc-body"></main>
+
+  <div class="byc-actions">
+    <div class="byc-actions-head">
+      <span class="byc-actions-ttl">অর্ডার অ্যাকশন</span>
+    </div>
+    <div class="byc-grid">
+      <button class="byc-act" data-msg="CapCut email ও password পাঠান।">
+        <span class="byc-act-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6 10-6"/></svg></span>
+        <span class="byc-act-t">Email ও Password চান</span>
+      </button>
+      <button class="byc-act hot" data-msg="আপনার email-এ ৪ ডিজিটের একটি OTP কোড পাঠিয়েছি। অনুগ্রহ করে কোডটি এখানে দিন।">
+        <span class="byc-act-ico jade"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 4v16M12 9h5M12 13h5"/></svg></span>
+        <span class="byc-act-t hot">OTP চান</span>
+      </button>
+      <button class="byc-act" data-msg="Dollar Withdraw করা হয়েছে ✅">
+        <span class="byc-act-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="byc-act-t">Withdraw হয়েছে</span>
+      </button>
+      <button class="byc-act" data-msg="আপনার bKash/Nagad নম্বর দিন।">
+        <span class="byc-act-ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+        <span class="byc-act-t">নম্বর চান</span>
+      </button>
+      <button class="byc-act full send" data-msg="টাকা পাঠানো হয়েছে ✅">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        <span>টাকা পাঠানো হয়েছে</span>
+      </button>
+      <button class="byc-act full cancel" id="byc-cancel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+        <span>অর্ডার বাতিল</span>
+      </button>
+    </div>
+
+    <div class="byc-input">
+      <div class="byc-input-box"><input id="byc-text" type="text" placeholder="মেসেজ লিখুন…"></div>
+      <button class="byc-send" id="byc-send" aria-label="পাঠান"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script src="chat-view.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Admin — চ্যাট দেখা</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../customer/chat.css">
+<link rel="stylesheet" href="admin.css">
+</head><body>
+<div class="app chat-app">
+  <header class="ad-top" style="padding-bottom:12px">
+    <a href="orders.html" class="ad-back" id="ac-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
+    <div style="flex:1"><div class="t1" id="ac-title">চ্যাট</div><div class="t2" id="ac-sub">শুধু দেখার জন্য (অ্যাডমিন)</div></div>
+  </header>
+  <div class="chat-summary" id="ac-summary" style="margin:10px 14px 0"></div>
+  <main class="chat-body scroll" id="ac-body"></main>
+  <div style="background:var(--card);border-top:1px solid var(--line-soft);padding:14px 16px;text-align:center;color:var(--muted);font-size:13px">
+    👁️ অ্যাডমিন শুধু দেখছেন — মেসেজ পাঠানো যাবে না।
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("admin","login.html"); })();</script>
+<script>
+(function(){
+  const payName={bkash:'bKash',nagad:'Nagad',bank:'Bank'};
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function timeStr(iso){ const d=new Date(iso); let h=d.getHours(),m=d.getMinutes(); const ap=h>=12?'PM':'AM'; h=h%12||12; return h+':'+(m<10?'0'+m:m)+' '+ap; }
+  function setBack(){
+    const q=new URLSearchParams(location.search); const tab=q.get('tab');
+    const b=document.getElementById('ac-back'); if(b && tab) b.setAttribute('href','orders.html?tab='+tab);
+  }
+  async function init(){
+    setBack();
+    const orderId=window.CFChat.getOrderId();
+    const order=await window.CFChat.loadOrder(orderId);
+    if(!order){ document.getElementById('ac-body').innerHTML='<div class="msg-system">অর্ডার লোড হয়নি।</div>'; return; }
+    const cust=(order.cust&&order.cust.full_name)||'কাস্টমার';
+    const buyr=(order.buyr&&order.buyr.full_name)||'বায়ার';
+    document.getElementById('ac-title').textContent='#'+(order.code||'');
+    document.getElementById('ac-sub').textContent=cust+' ↔ '+buyr;
+    document.getElementById('ac-summary').innerHTML=
+      '<div class="chat-summary-grid"><div class="cell"><div class="k">USD</div><div class="v">$'+order.usd+'</div></div>'
+      +'<div class="sep"></div><div class="cell"><div class="k">মোট</div><div class="v hi">৳'+Number(order.total_bdt).toLocaleString('en-US')+'</div></div>'
+      +'<div class="sep"></div><div class="cell"><div class="k">পেমেন্ট</div><div class="v">'+(payName[order.pay_method]||order.pay_method)+'</div></div>'
+      +'<div class="sep"></div><div class="cell"><div class="k">স্ট্যাটাস</div><div class="v">'+(order.status==='completed'?'সম্পন্ন':order.status==='cancelled'?'বাতিল':'চলমান')+'</div></div></div>';
+    const msgs=await window.CFChat.loadMessages(orderId);
+    const body=document.getElementById('ac-body');
+    body.innerHTML=msgs.map(m=>{
+      if(m.kind==='system') return '<div class="msg-system">'+esc(m.body)+'</div>';
+      // অ্যাডমিনের চোখে: কাস্টমার বামে, বায়ার ডানে — এখানে sender দিয়ে আলাদা করি
+      const side = m.sender_id===order.customer_id ? 'msg-buyer' : 'msg-me';
+      const who = m.sender_id===order.customer_id ? cust : buyr;
+      return '<div class="msg '+side+'"><div style="font-size:10px;opacity:.7;margin-bottom:2px">'+esc(who)+'</div><div>'+esc(m.body)+'</div>'
+        +(m.created_at?'<div class="time">'+timeStr(m.created_at)+'</div>':'')+'</div>';
+    }).join('')||'<div class="msg-system">কোনো মেসেজ নেই।</div>';
+    body.scrollTop=body.scrollHeight;
+  }
+  document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body></html>

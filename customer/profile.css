@@ -1,0 +1,106 @@
+/* ==========================================================================
+   CapFlow — profile.css  (কাস্টমার প্রোফাইল)
+   হেডার ব্যান্ডের ভেতরেই নাম/ছবি — কোনো ওভারল্যাপ নেই।
+   ========================================================================== */
+
+/* হেডার ব্যান্ড */
+.pf-band {
+  background: var(--jade-deep);
+  padding: 56px 22px 26px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pf-band-glow {
+  position: absolute; top: -60px; right: -50px;
+  width: 190px; height: 190px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(45,212,167,.32), rgba(45,212,167,0) 70%);
+}
+.pf-band-top {
+  display: flex; align-items: center; justify-content: space-between;
+  position: relative; margin-bottom: 20px;
+}
+.pf-band-ttl { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: #fff; }
+.pf-theme {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  color: #fff;
+}
+
+.pf-ident { display: flex; align-items: center; gap: 14px; position: relative; }
+.pf-ava {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--jade), #13A87C);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-family: var(--font-display); font-size: 23px;
+  border: 3px solid rgba(255,255,255,.15);
+  flex: 0 0 auto;
+}
+.pf-ident-txt { flex: 1; min-width: 0; }
+.pf-name-row { display: flex; align-items: center; gap: 6px; }
+.pf-name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: #fff; }
+.pf-verify { width: 16px; height: 16px; flex: 0 0 auto; }
+.pf-email { font-size: 12.5px; color: #B6D8CC; margin-top: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.pf-wrap { padding: 16px 22px; }
+
+/* স্ট্যাটস */
+.pf-stats { display: flex; gap: 10px; margin-bottom: 14px; }
+.pf-stat {
+  flex: 1; background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 16px; padding: 14px; text-align: center;
+}
+.pf-stat-n { font-family: var(--font-display); font-weight: 800; font-size: 20px; color: var(--ink); }
+.pf-stat-n.jade { color: var(--jade); }
+.pf-stat-l { font-size: 11px; color: var(--ink-2); margin-top: 2px; }
+
+/* বিস্তারিত */
+.pf-info {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 20px; overflow: hidden;
+}
+.pf-info-row {
+  padding: 15px 18px; display: flex; align-items: center; gap: 13px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.pf-info-row:last-child { border-bottom: none; }
+.pf-info-ico {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--bg); color: var(--ink-2);
+  display: flex; align-items: center; justify-content: center;
+  flex: 0 0 auto;
+}
+.pf-info-ico.mint { background: var(--mint); color: var(--jade); }
+.pf-info-ico svg { width: 18px; height: 18px; }
+.pf-info-k { font-size: 11px; color: var(--muted); }
+.pf-info-v { font-size: 14px; font-weight: 600; color: var(--ink); }
+.pf-info-v.jade { color: var(--jade); }
+
+/* বায়ার হতে */
+.pf-buyer {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 20px; padding: 16px 18px; margin-top: 14px;
+}
+.pf-buyer-ico {
+  width: 44px; height: 44px; border-radius: 13px;
+  background: var(--mint); color: var(--jade);
+  display: flex; align-items: center; justify-content: center;
+  flex: 0 0 auto;
+}
+.pf-buyer-ico svg { width: 22px; height: 22px; }
+.pf-buyer-txt { flex: 1; }
+.pf-buyer-ttl { font-weight: 700; font-size: 14.5px; color: var(--ink); }
+.pf-buyer-sub { font-size: 11.5px; color: var(--ink-2); margin-top: 2px; }
+.pf-buyer-arr { width: 20px; height: 20px; color: var(--muted); }
+
+/* লগ আউট */
+.pf-logout {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  height: 50px; border-radius: 14px;
+  background: var(--card); border: 1px solid var(--rose-bg);
+  color: var(--rose-ink); font-size: 13.5px; font-weight: 600;
+  margin-top: 14px;
+}
+.pf-logout svg { width: 17px; height: 17px; }

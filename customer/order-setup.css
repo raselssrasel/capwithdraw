@@ -1,0 +1,102 @@
+/* ==========================================================================
+   CapFlow — order-setup.css
+   ========================================================================== */
+
+.os-top { display: flex; align-items: center; gap: 14px; }
+.os-back {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  color: var(--ink); flex: 0 0 auto;
+}
+.os-back svg { width: 20px; height: 20px; }
+.os-h1 { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--ink); }
+.os-h2 { font-size: 12.5px; color: var(--ink-2); margin-top: 1px; }
+
+.os-wrap { padding: 20px 22px 0; }
+
+.os-label { display: block; font-size: 12.5px; font-weight: 600; color: var(--ink-2); margin: 18px 0 8px; }
+.os-wrap > .os-label:first-child { margin-top: 0; }
+.os-label-dim { color: var(--muted); font-weight: 500; }
+
+/* USD পরিমাণ */
+.os-usd {
+  background: var(--jade-deep); border-radius: 20px;
+  padding: 18px 20px; display: flex; align-items: center; justify-content: space-between;
+}
+.os-usd-in { display: flex; align-items: baseline; gap: 4px; color: #fff; }
+.os-usd-cur { font-family: var(--font-display); font-weight: 700; font-size: 26px; }
+.os-usd-in input {
+  width: 130px; border: none; background: transparent; color: #fff;
+  font-family: var(--font-display); font-weight: 800; font-size: 21px; outline: none;
+}
+.os-usd-limit { text-align: right; color: #B6D8CC; font-size: 11.5px; }
+.os-usd-limit span { color: #fff; font-weight: 700; }
+
+/* পেমেন্ট */
+.os-pays { display: flex; gap: 10px; }
+.os-pay {
+  flex: 1; border: 1.5px solid var(--line); background: var(--card);
+  border-radius: 15px; padding: 16px 10px 13px;
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  cursor: pointer; position: relative;
+}
+.os-pay.on { border-color: var(--jade); background: var(--mint); }
+.os-pay.off { opacity: .5; border-style: dashed; cursor: not-allowed; }
+.os-pay .tick {
+  position: absolute; top: 8px; right: 8px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--jade); display: none; align-items: center; justify-content: center;
+}
+.os-pay.on .tick { display: flex; }
+.os-pay .tick svg { width: 11px; height: 11px; }
+.os-pay .state { font-size: 11px; font-weight: 600; }
+.os-pay.on .state { color: var(--jade-ink); }
+.os-pay .state.dim { color: var(--muted); }
+
+/* অ্যাকাউন্ট সংখ্যা */
+.os-acc {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 16px; padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.os-acc-l { font-size: 14px; color: var(--ink-2); }
+.os-acc-ctrl { display: flex; align-items: center; gap: 16px; }
+.os-step {
+  width: 36px; height: 36px; border-radius: 11px;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--ink);
+  font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.os-step.plus { border: none; background: var(--jade); color: #fff; }
+.os-count { font-family: var(--font-display); font-weight: 700; font-size: 20px; min-width: 22px; text-align: center; color: var(--ink); }
+
+/* সারাংশ */
+.os-summary {
+  background: var(--card); border: 1px solid var(--line-soft);
+  border-radius: 18px; padding: 16px 18px; margin-top: 20px;
+}
+.os-sum-row {
+  display: flex; justify-content: space-between;
+  font-size: 13.5px; color: var(--ink-2); margin-bottom: 10px;
+}
+.os-sum-row .v { color: var(--ink); font-weight: 600; }
+.os-sum-row.dashed { padding-bottom: 12px; border-bottom: 1px dashed var(--line); margin-bottom: 0; }
+.os-sum-total {
+  display: flex; justify-content: space-between; align-items: center; margin-top: 12px;
+}
+.os-sum-total span:first-child { font-weight: 700; font-size: 14px; color: var(--ink); }
+.os-sum-total .total { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--jade); }
+
+/* ফুটার */
+.os-foot { padding: 14px 22px 30px; background: var(--bg); flex-shrink: 0; }
+
+/* বায়ার নোটিস */
+.os-notice {
+  background: var(--amber-bg); border-radius: 16px; padding: 14px 16px; margin-top: 18px;
+}
+.os-notice-head {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 700; color: var(--amber-ink); margin-bottom: 8px;
+}
+.os-notice-head svg { width: 16px; height: 16px; }
+.os-notice-body { font-size: 13px; line-height: 1.6; color: var(--ink); }

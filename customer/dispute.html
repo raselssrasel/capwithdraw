@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — অভিযোগ</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="dispute.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="dp-head">
+      <div class="display dp-title">অভিযোগ / Dispute</div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="থিম বদলান"></button>
+    </div>
+  </header>
+
+  <main class="content scroll">
+    <div class="dp-wrap">
+
+      <p class="dp-intro">কোনো অর্ডারে সমস্যা হলে এখানে অভিযোগ জানান। আমাদের টিম দেখে ব্যবস্থা নেবে।</p>
+
+      <label class="dp-label">কোন অর্ডার?</label>
+      <select id="dp-order" class="dp-select"></select>
+
+      <label class="dp-label">সমস্যা</label>
+      <select id="dp-title" class="dp-select">
+        <option value="টাকা পাওয়া যায়নি">টাকা পাওয়া যায়নি</option>
+        <option value="ভুল পরিমাণ টাকা">ভুল পরিমাণ টাকা</option>
+        <option value="বায়ার উত্তর দিচ্ছে না">বায়ার উত্তর দিচ্ছে না</option>
+        <option value="অ্যাকাউন্ট সমস্যা">অ্যাকাউন্ট সমস্যা</option>
+        <option value="অন্যান্য">অন্যান্য</option>
+      </select>
+
+      <label class="dp-label">বিস্তারিত</label>
+      <textarea id="dp-note" class="dp-textarea" placeholder="সমস্যাটা বিস্তারিত লিখুন…"></textarea>
+
+      <div id="dp-msg" class="au-msg" hidden></div>
+
+      <button id="dp-submit" class="btn btn-primary" style="margin-top:16px">অভিযোগ জমা দিন</button>
+
+      <div class="dp-note-small">⚠️ প্রতি ঘণ্টায় সর্বোচ্চ ১টি অভিযোগ জমা দেওয়া যাবে।</div>
+
+      <!-- আগের অভিযোগ -->
+      <div class="dp-sec">আপনার অভিযোগ</div>
+      <div id="dp-list" class="dp-list"></div>
+      <p id="dp-empty" class="dp-empty" hidden>এখনো কোনো অভিযোগ নেই।</p>
+
+    </div>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireLogin) await window.cfRequireLogin("welcome.html"); })();</script>
+<script src="dispute.js"></script>
+</body>
+</html>

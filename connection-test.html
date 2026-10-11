@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — সংযোগ পরীক্ষা</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .ct { padding: 70px 24px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+  .ct-logo { width: 72px; height: 72px; border-radius: 20px; background: var(--jade); display: flex; align-items: center; justify-content: center; }
+  .ct-logo svg { width: 36px; height: 36px; }
+  .ct h1 { font-family: var(--font-display); font-size: 22px; margin: 0; color: var(--ink); }
+  .ct p { color: var(--ink-2); font-size: 14px; margin: 0; line-height: 1.6; max-width: 320px; }
+  .ct-box { width: 100%; max-width: 360px; background: var(--card); border: 1px solid var(--line-soft); border-radius: 18px; padding: 18px; }
+  .ct-status { font-size: 15px; font-weight: 700; padding: 14px; border-radius: 12px; }
+  .ct-wait { background: var(--amber-bg); color: var(--amber-ink); }
+  .ct-ok   { background: var(--mint);     color: var(--jade-ink); }
+  .ct-err  { background: var(--rose-bg);  color: var(--rose-ink); }
+  .ct-detail { font-size: 12.5px; color: var(--ink-2); margin-top: 10px; word-break: break-word; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="ct">
+    <div class="ct-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7H8a4 4 0 0 0 0 8h5"/><path d="M13 11l4 4-4 4"/><path d="M12 3v3M12 18v3"/></svg>
+    </div>
+    <h1>Supabase সংযোগ পরীক্ষা</h1>
+    <p>supabase.js ফাইলে আপনার URL ও key বসানোর পর এই পেজ খুলুন। নিচে ফলাফল দেখাবে।</p>
+
+    <div class="ct-box">
+      <div id="ct-status" class="ct-status ct-wait">পরীক্ষা করা হচ্ছে…</div>
+      <div id="ct-detail" class="ct-detail"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Supabase লাইব্রেরি (ইন্টারনেট থেকে লোড হয়) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase.js"></script>
+<script>
+  (async function () {
+    const st = document.getElementById('ct-status');
+    const dt = document.getElementById('ct-detail');
+
+    // URL/key বসানো হয়েছে কিনা দেখা
+    if (!window.cfSupabase) {
+      st.className = 'ct-status ct-err';
+      st.textContent = '✕ সংযোগ হয়নি';
+      dt.textContent = 'supabase.js এ URL ও key বসানো হয়েছে কিনা দেখুন, আর ইন্টারনেট সংযোগ আছে কিনা।';
+      return;
+    }
+
+    try {
+      const { error } = await window.cfSupabase.from('offers').select('id').limit(1);
+      if (error && error.message && /Invalid API key|fetch|Failed/i.test(error.message)) {
+        st.className = 'ct-status ct-err';
+        st.textContent = '✕ সংযোগে সমস্যা';
+        dt.textContent = 'বার্তা: ' + error.message + ' — URL/key ঠিকমতো বসেছে কিনা আবার দেখুন।';
+      } else {
+        st.className = 'ct-status ct-ok';
+        st.textContent = '✅ সংযোগ ঠিক আছে!';
+        dt.textContent = 'অ্যাপ এখন Supabase ডেটাবেসের সাথে কথা বলতে পারছে। (টেবিল এখন খালি, তাই কোনো তথ্য আসেনি — এটা স্বাভাবিক।)';
+      }
+    } catch (e) {
+      st.className = 'ct-status ct-err';
+      st.textContent = '✕ সংযোগে সমস্যা';
+      dt.textContent = 'বার্তা: ' + (e.message || e);
+    }
+  })();
+</script>
+</body>
+</html>

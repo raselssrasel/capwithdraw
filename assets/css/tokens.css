@@ -1,0 +1,105 @@
+/* ==========================================================================
+   CapFlow — tokens.css
+   সব ব্র্যান্ড কালার, ফন্ট আর স্পেসিং এখানে এক জায়গায়।
+   রঙ বদলাতে চাইলে শুধু এই ফাইলটাই বদলালেই সব পেজে বদলে যাবে।
+   ========================================================================== */
+
+:root {
+  /* --- মূল রঙ (brand) --- */
+  --jade:        #0A8560;   /* প্রধান সবুজ — CTA, সিলেক্ট */
+  --jade-ink:    #06603F;   /* গাঢ় সবুজ — টেক্সট */
+  --jade-deep:   #0B3B2E;   /* সবচেয়ে গাঢ় — হেডার ব্যানার */
+  --mint:        #E7F5EF;   /* হালকা সবুজ টিন্ট */
+
+  /* --- নিউট্রাল (background, text) --- */
+  --bg:          #F4F6F8;   /* অ্যাপের ব্যাকগ্রাউন্ড */
+  --card:        #FFFFFF;   /* কার্ড/সারফেস */
+  --ink:         #12161F;   /* প্রধান টেক্সট */
+  --ink-2:       #5A6472;   /* হালকা/সেকেন্ডারি টেক্সট */
+  --muted:       #8A93A1;   /* আরও হালকা */
+  --line:        #E7EAF0;   /* বর্ডার/হেয়ারলাইন */
+  --line-soft:   #EDF0F4;
+
+  /* --- স্ট্যাটাস রঙ --- */
+  --amber-bg:    #FEF2E0;  --amber-ink:  #9A5B00;  /* pending / OTP */
+  --rose-bg:     #FDE9E7;  --rose-ink:   #B23227;  /* cancel / danger */
+  --blue-bg:     #EAF0FF;  --blue-ink:   #2B4ACB;  /* info / new */
+
+  /* --- পেমেন্ট ব্র্যান্ড --- */
+  --bkash:       #E2136E;
+  --nagad:       #ED1C24;
+  --bank:        #16233A;
+
+  /* --- মাপ (spacing / radius) --- */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 22px;
+  --r-pill: 999px;
+
+  /* --- ছায়া (shadow) --- */
+  --shadow-sm: 0 1px 2px rgba(17,22,31,.04);
+  --shadow-md: 0 8px 24px -12px rgba(17,22,31,.14);
+  --shadow-cta: 0 14px 30px -14px rgba(10,133,96,.7);
+
+  /* --- ফন্ট --- */
+  --font-ui:      'Plus Jakarta Sans', 'Hind Siliguri', system-ui, sans-serif;
+  --font-display: 'Sora', 'Hind Siliguri', system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   ডার্ক মোড
+   কাজ করে দুইভাবে:
+   1) ইউজার নিজে টগল করলে  → <html data-theme="dark"> বা "light"
+   2) ইউজার কিছু না করলে   → ফোনের নিজের সেটিং (prefers-color-scheme) মানবে
+   ========================================================================== */
+
+/* ফোনের সেটিং ডার্ক হলে (ইউজার নিজে বাছেনি এমন অবস্থায়) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --jade:        #12A574;
+    --jade-ink:    #4FD6A6;
+    --jade-deep:   #0E2A22;
+    --mint:        #10322A;
+
+    --bg:          #0E1116;
+    --card:        #171B22;
+    --ink:         #ECEFF3;
+    --ink-2:       #A4ADBA;
+    --muted:       #6B7483;
+    --line:        #2A2F39;
+    --line-soft:   #232833;
+
+    --amber-bg:    #3A2A10;  --amber-ink:  #F0B44E;
+    --rose-bg:     #3A1D1B;  --rose-ink:   #F3837A;
+    --blue-bg:     #1C2440;  --blue-ink:   #8EA6FF;
+
+    --shadow-sm:   0 1px 2px rgba(0,0,0,.4);
+    --shadow-md:   0 10px 28px -14px rgba(0,0,0,.7);
+    --shadow-cta:  0 14px 30px -16px rgba(0,0,0,.8);
+  }
+}
+
+/* ইউজার নিজে ডার্ক বাছলে (ফোনের সেটিং যাই হোক) */
+:root[data-theme="dark"] {
+  --jade:        #12A574;
+  --jade-ink:    #4FD6A6;
+  --jade-deep:   #0E2A22;
+  --mint:        #10322A;
+
+  --bg:          #0E1116;
+  --card:        #171B22;
+  --ink:         #ECEFF3;
+  --ink-2:       #A4ADBA;
+  --muted:       #6B7483;
+  --line:        #2A2F39;
+  --line-soft:   #232833;
+
+  --amber-bg:    #3A2A10;  --amber-ink:  #F0B44E;
+  --rose-bg:     #3A1D1B;  --rose-ink:   #F3837A;
+  --blue-bg:     #1C2440;  --blue-ink:   #8EA6FF;
+
+  --shadow-sm:   0 1px 2px rgba(0,0,0,.4);
+  --shadow-md:   0 10px 28px -14px rgba(0,0,0,.7);
+  --shadow-cta:  0 14px 30px -16px rgba(0,0,0,.8);
+}

@@ -1,0 +1,15 @@
+/* ==========================================================================
+   CapFlow — buyer orders.css  (অর্ডার তালিকা, customer/orders.css পুনরায় ব্যবহার)
+   ========================================================================== */
+
+.byo-tabs-wrap {
+  padding: 12px 22px 2px;
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
+/* কাস্টমারের avatar সবুজ; বায়ার সাইডে কাস্টমারের initials আলাদা রঙ হলে ভালো */
+.od-card-ava.cust {
+  background: linear-gradient(135deg, var(--jade), #13A87C);
+  color: #fff;
+}

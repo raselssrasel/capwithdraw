@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — প্রোফাইল</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+
+
+
+<div class="app">
+
+  <!-- হেডার ব্যান্ড (প্রোফাইল ভেতরে, ওভারল্যাপ নেই) -->
+  <header class="pf-band">
+    <div class="pf-band-glow"></div>
+    <div class="pf-band-top">
+      <div class="pf-band-ttl">প্রোফাইল</div>
+      <button id="theme-toggle" class="theme-toggle pf-theme" aria-label="থিম বদলান"></button>
+    </div>
+
+
+
+
+    <div class="pf-ident">
+      <div id="pf-ava" class="pf-ava"></div>
+      <div class="pf-ident-txt">
+        <div class="pf-name-row">
+          <span id="pf-name" class="pf-name"></span>
+          <svg class="pf-verify" viewBox="0 0 24 24" fill="#2DD4A7"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3 7.2 17l.9-5.4L4.2 7.7l5.4-.8z"/></svg>
+        </div>
+        <div id="pf-email" class="pf-email"></div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  
+  <main class="content scroll">
+    <div class="pf-wrap">
+
+
+
+
+
+
+
+     
+
+      <!-- বিস্তারিত -->
+      <div class="pf-info">
+        <div class="pf-info-row">
+          <span class="pf-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <div><div class="pf-info-k">ফোন</div><div id="pf-phone" class="pf-info-v"></div></div>
+        </div>
+        <div class="pf-info-row">
+          <span class="pf-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><div class="pf-info-k">সদস্য</div><div id="pf-since" class="pf-info-v"></div></div>
+        </div>
+        <div class="pf-info-row">
+          <span class="pf-info-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><div class="pf-info-k">অ্যাকাউন্ট স্ট্যাটাস</div><div class="pf-info-v jade">ভেরিফায়েড</div></div>
+        </div>
+      </div>
+
+      <!-- বায়ার হতে যোগাযোগ -->
+      <a href="become-buyer.html" class="pf-buyer">
+        <span class="pf-buyer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+        <div class="pf-buyer-txt"><div class="pf-buyer-ttl">বায়ার হতে চান?</div><div class="pf-buyer-sub">যোগাযোগ করুন আমাদের সাথে</div></div>
+        <svg class="pf-buyer-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+
+      <!-- লগ আউট -->
+      <button id="pf-logout" class="pf-logout" style="width:100%;font-family:inherit;cursor:pointer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+        লগ আউট
+      </button>
+
+    </div>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="profile.js"></script>
+<script>
+  (async () => { await window.cfRequireLogin('welcome.html'); })();
+  document.getElementById('pf-logout').addEventListener('click', async () => {
+    await window.cfSignOut();
+    window.location.href = '../index.html';
+  });
+</script>
+</body>
+</html>

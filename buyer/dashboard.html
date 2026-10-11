@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — ড্যাশবোর্ড</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="buyer.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="by-band">
+    <div class="by-band-glow"></div>
+    <div class="by-band-row">
+      <div class="by-brand">
+        <div id="by-ava" class="by-brand-ava"></div>
+        <div><div class="by-brand-k">বায়ার প্যানেল</div><div id="by-name" class="by-brand-v"></div></div>
+      </div>
+      <button id="theme-toggle" class="by-theme" aria-label="থিম বদলান"></button>
+    </div>
+  </header>
+
+  <main class="content scroll">
+    <div class="by-wrap bd-wrap">
+
+      <!-- ভলিউম কার্ড -->
+      <div class="bd-vol">
+       <div style="height: 0.5em;"></div>
+        <div class="bd-vol-k">এই মাসের ভলিউম</div>
+        <div id="bd-vol-n" class="bd-vol-n"></div>
+        <div id="bd-vol-g" class="bd-vol-g"></div>
+      </div>
+
+      <!-- অর্ডার স্ট্যাটস -->
+      <div class="bd-stats">
+        <a href="orders.html" class="bd-stat">
+          <span class="bd-stat-ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div id="bd-active" class="bd-stat-n"></div>
+          <div class="bd-stat-l">সক্রিয় অর্ডার</div>
+        </a>
+        <a href="orders.html?tab=completed" class="bd-stat">
+          <span class="bd-stat-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+          <div id="bd-done" class="bd-stat-n"></div>
+          <div class="bd-stat-l">সম্পন্ন</div>
+        </a>
+      </div>
+
+
+
+<div style="height: 0.5em;"></div>
+<!-- আমার অফার -->
+<div class="by-sec">আমার অফার</div>
+<div class="bd-offer">
+  <div class="bd-offer-glow"></div>
+  <div class="bd-offer-in">
+    <div class="bd-offer-top">
+      <div>
+        <div class="bd-offer-k">লাইভ · ৳<span id="bd-offer-rate"></span>/$1</div>
+      </div>
+      <span class="bd-offer-live"><span class="dot" style="background:#2DD4A7"></span>অনলাইন</span>
+    </div>
+    <div class="bd-offer-btns">
+      <!-- অফার এডিট এর URL নিচে href এর ভেতর দিন -->
+      <a href="allbuyeroffer.html" class="bd-offer-btn ghost">সব অফার</a>
+      <!-- প্রিভিউ এর URL নিচে href এর ভেতর দিন -->
+      <a href="offer.html" class="bd-offer-btn solid">আপনার অফার</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      <!-- কুইক -->
+      <div class="by-sec" style="margin-top:20px">দ্রুত অ্যাক্সেস</div>
+      <div class="bd-quick">
+        <a href="chat.html" class="bd-q">
+          <span class="bd-q-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-4.2A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+          <div><div class="bd-q-t">কাস্টমার চ্যাট</div><div class="bd-q-s">চ্যাট দেখুন</div></div>
+        </a>
+
+
+
+        <a href="profile.html" class="bd-q">
+          <span class="bd-q-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+          <div><div class="bd-q-t">প্রোফাইল</div><div class="bd-q-s">ভেরিফায়েড</div></div>
+        </a>
+
+
+
+
+        
+      </div>
+
+    </div>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script src="dashboard.js"></script>
+</body>
+</html>

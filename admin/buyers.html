@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Admin — বায়ার</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="approvals.css">
+</head><body>
+<div class="app">
+  <header class="ad-top">
+    <a href="dashboard.html" class="ad-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
+    <div style="flex:1"><div class="t1">বায়ার</div><div class="t2"><span id="bz-count">0</span> জন বায়ার</div></div>
+  </header>
+  <main class="content scroll"><div class="ad-wrap">
+
+    <!-- নতুন বায়ার যোগ -->
+    <button id="bz-add-btn" class="btn btn-primary" style="margin-bottom:14px">+ নতুন বায়ার যোগ করুন</button>
+    <div id="bz-form" class="ad-card" hidden style="margin-bottom:14px">
+      <div class="ad-sec" style="color:var(--muted)">নতুন বায়ার</div>
+      <input id="bz-name" placeholder="নাম" style="width:100%;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:14px;box-sizing:border-box;margin-bottom:10px">
+      <input id="bz-email" type="email" placeholder="ইমেইল" style="width:100%;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:14px;box-sizing:border-box">
+      <div id="bz-msg" class="au-msg" hidden style="margin-top:10px"></div>
+      <div style="display:flex;gap:10px;margin-top:12px">
+        <button id="bz-cancel" class="btn btn-ghost" style="flex:0 0 38%;height:46px">বাতিল</button>
+        <button id="bz-save" class="btn btn-primary" style="flex:1;height:46px">যোগ করুন</button>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5">যোগ করলে ঐ ইমেইলে পাসওয়ার্ড-সেট লিংক যাবে। বায়ার পাসওয়ার্ড সেট করে লগইন করবে।<br>(শর্ত: ঐ ইমেইলে আগে একবার সাইন আপ করা থাকতে হবে।)</p>
+    </div>
+
+    <div id="bz-list" style="display:flex;flex-direction:column;gap:12px"></div>
+    <p id="bz-empty" class="dp-empty" style="text-align:center;color:var(--muted);padding:20px" hidden>কোনো বায়ার নেই।</p>
+
+  </div></main>
+  <nav id="bottom-nav" class="bottom-nav admin-nav"></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("admin","login.html"); })();</script>
+<script src="buyers.js"></script>
+</body></html>

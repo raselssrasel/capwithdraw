@@ -1,0 +1,150 @@
+/* ==========================================================================
+   CapFlow — auth.css
+   splash / welcome / sign in / sign up পেজের কমন স্টাইল।
+   ========================================================================== */
+
+/* ---------- স্প্ল্যাশ ---------- */
+.splash {
+  background: var(--jade-deep);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+.sp-glow { position: absolute; border-radius: 50%; }
+.sp-glow-1 { top: -120px; right: -90px; width: 320px; height: 320px;
+  background: radial-gradient(circle at 30% 30%, rgba(14,169,124,.55), rgba(14,169,124,0) 70%); }
+.sp-glow-2 { bottom: -140px; left: -100px; width: 300px; height: 300px;
+  background: radial-gradient(circle at 60% 40%, rgba(16,185,129,.30), rgba(16,185,129,0) 70%); }
+
+.sp-center { display: flex; flex-direction: column; align-items: center; gap: 20px; z-index: 1; }
+.sp-logo {
+  width: 92px; height: 92px; border-radius: 26px;
+  background: var(--jade);
+  box-shadow: 0 18px 40px -14px rgba(0,0,0,.6);
+  display: flex; align-items: center; justify-content: center;
+}
+.sp-logo svg { width: 46px; height: 46px; }
+.sp-word { font-family: var(--font-display); font-weight: 800; font-size: 40px; letter-spacing: -1px; }
+.sp-word span { color: #2DD4A7; }
+.sp-tag { color: #CDE8DE; font-size: 15px; text-align: center; max-width: 280px; }
+
+.sp-bottom {
+  position: absolute; bottom: 54px; left: 0; right: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 20px; z-index: 1;
+}
+.sp-btn {
+  width: 326px; background: #fff; color: var(--jade-deep);
+  box-shadow: 0 12px 30px -12px rgba(0,0,0,.5);
+}
+.sp-secure {
+  display: flex; align-items: center; gap: 8px;
+  color: #9FC7BA; font-size: 12.5px;
+}
+.sp-secure svg { width: 15px; height: 15px; }
+
+/* ---------- Welcome ---------- */
+.wc-hero {
+  height: 430px; background: var(--jade-deep);
+  border-radius: 0 0 34px 34px;
+  position: relative; overflow: hidden;
+  padding: 72px 28px 0;
+  flex-shrink: 0;
+}
+.wc-hero-glow {
+  position: absolute; top: -80px; right: -60px; width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(45,212,167,.4), rgba(45,212,167,0) 70%);
+}
+.wc-brand { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+.wc-brand-logo {
+  width: 48px; height: 48px; border-radius: 14px; background: var(--jade);
+  display: flex; align-items: center; justify-content: center;
+}
+.wc-brand-logo svg { width: 26px; height: 26px; }
+.wc-brand-word { font-family: var(--font-display); font-weight: 800; font-size: 24px; color: #fff; letter-spacing: -.5px; }
+.wc-brand-word span { color: #2DD4A7; }
+.wc-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.2;
+  color: #fff; margin: 40px 0 14px; max-width: 290px; letter-spacing: -.6px;
+}
+.wc-sub { color: #B6D8CC; font-size: 14.5px; line-height: 1.55; margin: 0; max-width: 290px; }
+
+.wc-actions { flex: 1; padding: 30px 24px; display: flex; flex-direction: column; gap: 14px; }
+.wc-note {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--bg); border: 1px solid var(--line-soft);
+  border-radius: 14px; padding: 13px 15px; margin-top: 6px;
+}
+.wc-note svg { width: 18px; height: 18px; color: var(--jade); flex: 0 0 auto; }
+.wc-note span { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; }
+.wc-terms { text-align: center; color: var(--muted); font-size: 11.5px; line-height: 1.5; padding: 0 36px 26px; margin: 0; }
+
+/* ---------- Sign In / Sign Up কমন ---------- */
+.au-top { padding: 62px 24px 16px; flex-shrink: 0; }
+.au-back {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--card); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink);
+}
+.au-back svg { width: 20px; height: 20px; }
+
+.au-body { padding: 16px 24px 0; }
+.au-logo {
+  width: 56px; height: 56px; border-radius: 17px; background: var(--jade);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 22px;
+}
+.au-logo svg { width: 30px; height: 30px; }
+.au-h1 { font-family: var(--font-display); font-weight: 700; font-size: 28px; letter-spacing: -.6px; margin: 0 0 8px; color: var(--ink); }
+.au-p { color: var(--ink-2); font-size: 14.5px; margin: 0 0 30px; }
+
+.au-fields { display: flex; flex-direction: column; gap: 18px; }
+.au-field { display: flex; flex-direction: column; gap: 7px; }
+.au-label { font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
+.au-input {
+  height: 54px; border-radius: 14px;
+  border: 1.5px solid var(--line); background: var(--card);
+  display: flex; align-items: center; padding: 0 15px; gap: 11px;
+}
+.au-input.focus { border-color: var(--jade); }
+.au-input svg { width: 19px; height: 19px; flex: 0 0 auto; }
+.au-input input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-size: 15px; font-family: inherit; color: var(--ink); min-width: 0;
+}
+.au-input .prefix { font-size: 15px; color: var(--ink-2); font-weight: 600; }
+.au-input .divider { width: 1px; height: 22px; background: var(--line); }
+
+.au-forgot { text-align: right; }
+.au-forgot a { color: var(--jade); font-size: 13px; font-weight: 700; }
+
+.au-foot { margin-top: auto; padding: 16px 24px 30px; }
+.au-switch { text-align: center; margin-top: 14px; font-size: 13.5px; color: var(--ink-2); }
+.au-switch a { color: var(--jade); font-weight: 700; }
+
+/* প্রোফাইল ফটো (sign up) */
+.au-photo { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 4px 0 10px; }
+.au-photo-ring {
+  position: relative; width: 84px; height: 84px;
+}
+.au-photo-ring .ph {
+  width: 84px; height: 84px; border-radius: 50%;
+  background: var(--mint); border: 2px dashed color-mix(in srgb, var(--jade) 50%, transparent);
+  display: flex; align-items: center; justify-content: center;
+}
+.au-photo-ring .ph svg { width: 30px; height: 30px; color: var(--jade); }
+.au-photo-ring .add {
+  position: absolute; right: -2px; bottom: -2px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--jade); border: 3px solid var(--bg);
+  display: flex; align-items: center; justify-content: center;
+}
+.au-photo-ring .add svg { width: 15px; height: 15px; color: #fff; }
+.au-photo-txt { font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- লগইন/সাইনআপ বার্তা (এরর/সফল) ---------- */
+.au-msg {
+  font-size: 13px; font-weight: 600;
+  padding: 11px 14px; border-radius: 12px; line-height: 1.45;
+}
+.au-msg.err { background: var(--rose-bg); color: var(--rose-ink); }
+.au-msg.ok  { background: var(--mint);    color: var(--jade-ink); }

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow — Marketplace</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="marketplace.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- হেডার -->
+  <header class="topbar">
+    <div class="mk-head">
+      <div class="display mk-title">Marketplace</div>
+      <div class="mk-head-right">
+        <div class="badge badge-online"><span class="dot" style="background:var(--jade)"></span> অনলাইন</div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="থিম বদলান"></button>
+      </div>
+    </div>
+    <div class="mk-searchrow">
+      <div class="mk-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#9AA3B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+        <input id="mk-search-input" type="text" placeholder="বায়ার খুঁজুন…">
+      </div>
+      <button id="mk-filter-btn" class="mk-filter" aria-label="Filter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- সার্ভার চিপ (JS থেকে ভরবে) -->
+  <div id="mk-chips" class="mk-chips scroll"></div>
+
+  <!-- অফার তালিকা (JS থেকে ভরবে) -->
+  <main class="content scroll">
+    <div id="mk-offers" class="mk-offers"></div>
+    <p id="mk-empty" class="mk-empty" hidden>এই সার্ভারে কোনো অফার নেই।</p>
+  </main>
+
+  <!-- বটম নেভিগেশন (app.js থেকে ভরবে) -->
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireLogin) await window.cfRequireLogin("welcome.html"); })();</script>
+<script src="marketplace.js"></script>
+</body>
+</html>

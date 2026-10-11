@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — অর্ডার</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="buyer.css">
+<link rel="stylesheet" href="../customer/orders.css">
+<link rel="stylesheet" href="orders.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="by-top">
+    <div style="flex:1"><div class="t1">সক্রিয় অর্ডার</div><div class="t2">কাস্টমারদের চলমান অর্ডার</div></div>
+    <button id="theme-toggle" class="by-theme" aria-label="থিম বদলান"></button>
+  </header>
+
+  <div class="byo-tabs-wrap">
+    <div class="od-tabs">
+      <button class="od-tab active" data-tab="active">সক্রিয় <span id="byo-c-active">0</span></button>
+      <button class="od-tab" data-tab="completed">সম্পন্ন <span id="byo-c-completed">0</span></button>
+      <button class="od-tab" data-tab="cancelled">বাতিল <span id="byo-c-cancelled">0</span></button>
+    </div>
+  </div>
+
+  <main class="content scroll">
+    <div id="byo-list" class="od-list"></div>
+    <p id="byo-empty" class="od-empty" hidden>এখানে কোনো অর্ডার নেই।</p>
+  </main>
+
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/chat-db.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script src="orders.js"></script>
+</body>
+</html>

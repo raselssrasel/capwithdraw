@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CapFlow Buyer — চ্যাট</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="chat-list.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="cl-head">
+      <div class="display cl-title">কাস্টমার চ্যাট</div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="থিম বদলান"></button>
+    </div>
+    <div class="cl-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#9AA3B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+      <input id="cl-search-input" type="text" placeholder="চ্যাট খুঁজুন…">
+    </div>
+  </header>
+  <main class="content scroll">
+    <div id="cl-items" class="cl-items"></div>
+    <p id="cl-empty" class="cl-empty" hidden>কোনো চ্যাট পাওয়া যায়নি।</p>
+  </main>
+  <nav id="bottom-nav" class="bottom-nav"></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>(async()=>{ if(window.cfRequireRole) await window.cfRequireRole("buyer","login.html"); })();</script>
+<script src="chat-list.js"></script>
+</body>
+</html>
